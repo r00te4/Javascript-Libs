@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> To Change The Webpage Skin</title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link href="css/green.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+  #notes p span{display:block;line-height:25px;}
+  #outer{width:600px;height:280px;border:0px solid red;margin:0 auto;}
+  #btn{width:90%;margin:0 auto;display:block;}
+  #con{width:100px; height:100px;background:black;margin:0 auto;margin-top:50px;text-align:center;}
+
+
+  #skin{float:left;border:1px solid white;}
+  #skin li{float:left;line-height:20px;padding:2px 5px;list-style:none;border-width:5px;border-style:solid;text-align:center;color:white;cursor:hand;}
+ 
+  #nav{width:500px;float:left;border:1px solid white;height:40px;border:1px solid #fff;}
+  #nav li{float:left;list-style:none;line-height:40px;text-align:center;border-right:1px solid white;}
+  #nav li.last{border-right-width:0;}
+  #nav li a{text-decoration:none;color:white;padding:5px 8px 5px 10px;}
+  #nav li a:hover{text-decoration:underline;color:black;}
+
+
+  #red{font-size:12px;background:red;border-color:red;}
+  #black{font-size:12px;background:black;border-color:black;}
+  #green{font-size:12px;background:green;border-color:green;}
+  #skin li.current{background:white;} /*  li.current vs li .current*/
+  </style>
+  <script type="text/javascript">
+  window.onload=function(){
+	   var oSkin=document.getElementById("skin").getElementsByTagName("li");
+	   var oStyle=document.getElementsByTagName("link")[0];
+
+	   for(var i=0;i<oSkin.length;i++){
+	   oSkin[i].onclick=function(){
+		for (j in oSkin )
+			{oSkin[j].className="";
+			}
+		this.className="current";
+		//document.write(oStyle['href']);
+		oStyle['href']="css/"+this.id+".css"
+	   }
+	   }
+	   /* for (i in oSkin)
+	   {
+	   alert(oSkin[i].innerHTML);// innerHTML to test
+	   }
+
+		for(j in oStyle){
+		alert(oStyle[j].innerHTML);
+		  }*/
+  }
+  </script>
+ </head>
+
+ <body>
+
+ <div id="outer">
+	<ul id="skin">
+	<li id="red" title="Red"></li>
+	<li id="green" title="Green" class="current"></li>
+	<li id="black" title="Black"></li>
+	</ul>
+
+	<ul id="nav">
+		<li><a href="#">Index</a></li>
+		<li><a href="#">Introduction</a></li>
+		<li><a href="#">Products</a></li>
+		<li><a href="#">Abouts</a></li>
+		<li><a href="#">Contacts</a></li>	
+	</ul>
+
+
+ 
+ </div>
+  
+
+   <div id="notes">
+ <p>
+心得:
+<span>1,测试元素内容获取情况用   alert(oSkin[i].innerHTML);// innerHTML to test</span>
+<span>2,document.write(oStyle['href']测试元素属性信息</span>
+<span>3,for (j in oSkin )
+			{oSkin[j].className="";
+			}的用法，以及this的用法</span>
+<span>4,getElementsByTagName大小写，及s的写法</span>
+<span>5, li.current vs li .current 的区别</span>
+ </p>
+
+
+ </body>
+</html>
